@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mundo_mobile/core/navigation/app_router.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+void main() => runApp(const MainApp());
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    return MaterialApp.router(routerConfig: AppRouter.router, debugShowCheckedModeBanner: false);
   }
 }
