@@ -2,32 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mundo_mobile/core/widgets/custom_app_bar.dart';
 import 'package:mundo_mobile/core/widgets/press_effect.dart';
 import 'package:mundo_mobile/features/search/flight_search_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
-
-  Widget _header() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.only(top: 60, bottom: 30),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFF0B6B3A), Color(0xFF12A150)],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(25)),
-      ),
-      child: const Center(
-        child: Text(
-          "Qidiruv",
-          style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-        ),
-      ),
-    );
-  }
 
   Widget _glassChip(String text) {
     return Container(
@@ -65,9 +45,10 @@ class SearchScreen extends StatelessWidget {
     ];
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FA),
+      appBar: CustomAppBar(title: "Qidiruv"),
       body: Column(
         children: [
-          _header(),
+          // _header(),
           Expanded(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(), // Silliq skroll uchun
