@@ -2,20 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mundo_mobile/core/widgets/coming_soon_widget.dart';
 import 'package:mundo_mobile/core/widgets/press_effect.dart';
+import 'package:mundo_mobile/features/search/flight_search_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
-
-  void _showComingSoon(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent, // Orqa fonni transparent qilish shart
-      builder: (context) => const ComingSoonModal(),
-    );
-  }
 
   Widget _header() {
     return Container(
@@ -97,7 +88,12 @@ class SearchScreen extends StatelessWidget {
                       ),
                       itemBuilder: (context, index) {
                         return PressEffect(
-                          onTap: () => _showComingSoon(context),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => FlightSearchScreen()),
+                            );
+                          },
 
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 4),

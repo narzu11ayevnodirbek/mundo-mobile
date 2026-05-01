@@ -2,59 +2,63 @@ import 'package:flutter/material.dart';
 import 'package:mundo_mobile/core/constants/app_colors.dart';
 
 class ServiceCardWidget extends StatelessWidget {
-  final String service;
+  final String title;
+  final String subtitle;
   final IconData icon;
-  final String serviceType;
 
   const ServiceCardWidget({
     super.key,
-    required this.service,
+    required this.title,
+    required this.subtitle,
     required this.icon,
-    required this.serviceType,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.card,
         borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: AppColors.border),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
-            blurRadius: 12,
-            offset: const Offset(0, 6),
-          ),
-          BoxShadow(
-            color: Colors.black.withOpacity(0.03),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
           ),
         ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: const Color(0xFFEEF2FF),
-              borderRadius: BorderRadius.circular(12),
+              color: AppColors.primary.withOpacity(0.1),
+              shape: BoxShape.circle,
             ),
-            child: Icon(icon, size: 22, color: const Color.fromARGB(255, 2, 57, 151)),
+            child: Icon(icon, color: AppColors.primary, size: 22),
           ),
           const SizedBox(height: 10),
           Text(
-            service,
-            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: AppColors.textPrimary,
+            ),
           ),
-          const SizedBox(height: 2),
+          const SizedBox(height: 4),
           Text(
-            serviceType,
-            style: const TextStyle(fontSize: 10, color: Colors.grey),
+            subtitle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
           ),
         ],
       ),
