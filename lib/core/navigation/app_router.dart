@@ -25,6 +25,11 @@ class AppRouter {
           },
         ),
       ),
+      // GoRoute(
+      //   path: "/ai",
+      //   // parentNavigatorKey: _rootNavigatorKey,
+      //   builder: (_, _) => const AiScreen(),
+      // ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return MainScreen(navigationShell: navigationShell);
@@ -36,6 +41,15 @@ class AppRouter {
           StatefulShellBranch(
             routes: [GoRoute(path: '/search', builder: (context, state) => const SearchScreen())],
           ),
+          // StatefulShellBranch(
+          //   routes: [
+          //     GoRoute(
+          //       path: '/ai',
+          //       parentNavigatorKey: _rootNavigatorKey,
+          //       builder: (context, state) => const AiScreen(),
+          //     ),
+          //   ],
+          // ),
           StatefulShellBranch(
             routes: [GoRoute(path: '/ai', builder: (context, state) => const AiScreen())],
           ),
